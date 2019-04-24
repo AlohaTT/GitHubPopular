@@ -5,11 +5,11 @@ import NavigationUtil from '../util/NavigationUtil';
 export default class WelcomePage extends Component {
   componentDidMount() {
     this.timer = setTimeout(() => {
-      NavigationUtil.navigate(this.props.navigation,'Home');
-    }, 2000);
+      NavigationUtil.goHome(this.props.navigation, 'Home');
+    }, 200);
   }
-  componentWillUnmount(){
-    this.timer&&clearTimeout(this.timer);
+  componentWillUnmount() {
+    this.timer && clearTimeout(this.timer);
   }
 
   render() {
@@ -22,9 +22,9 @@ export default class WelcomePage extends Component {
 }
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center',
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

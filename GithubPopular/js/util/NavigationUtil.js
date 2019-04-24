@@ -8,13 +8,23 @@ export default class NavigationUtil {
     navigation.goBack();
   }
 
+  static goHome(navigation, routeName){
+    navigation.navigate(routeName);
+  }
+
   /**
    * 路由跳转
-   * @param {navigation} navigation
-   * @param {string} routName 路由地址
-   * @param {*} props
+   * @param {navigation} params
+   * @param {string} routName
    */
-  static navigate(navigation, routName, props = null) {
-    navigation.navigate(routName, props);
+  static navigate(params, routName) {
+    const {navigation,} = NavigationUtil;
+    if (!navigation) {
+      throw Error('NavigationUtil.navigation cannot be null');
+    }
+    navigation.navigate(routName,
+      {
+        ...params,
+      });
   }
 }

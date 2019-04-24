@@ -1,3 +1,4 @@
+/* eslint-disable react/no-multi-comp */
 import React, { Component, } from 'react';
 import { Text, StyleSheet, View, } from 'react-native';
 import { createAppContainer, createBottomTabNavigator, } from 'react-navigation';
@@ -8,6 +9,7 @@ import MyPage from './MyPage';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
+import NavigationUtil from '../util/NavigationUtil';
 
 const HomeTab = createBottomTabNavigator({
   Popular: {
@@ -68,6 +70,7 @@ const HomeTab = createBottomTabNavigator({
 // eslint-disable-next-line react/no-multi-comp
 export default class HomePage extends Component {
   render() {
+    NavigationUtil.navigation = this.props.navigation;
     const HomeContainer = createAppContainer(HomeTab);
     return <HomeContainer />;
   }
